@@ -8,23 +8,19 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+ #include<bits/stdc++.h>
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        vector<int> vec;
-        ListNode* temp=head;
-        while(temp){
-        vec.push_back(temp->val);
-        temp=temp->next;
-        }
-        int i=0,j=vec.size()-1;
-        while(i<=j){
-            if(vec[i]!=vec[j]){
-                return false;
-            }
-            i++;
-            j--;
-        }
-        return true;
+       string s="";
+       while(head){
+           s+=to_string(head->val);
+           head=head->next;
+       }
+       string s2=s;
+       reverse(s2.begin(),s2.end());
+       return(s==s2);
+
     }
 };
