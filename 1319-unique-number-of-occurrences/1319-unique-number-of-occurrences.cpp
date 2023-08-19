@@ -1,14 +1,18 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        unordered_map<int,int> mp;
-        unordered_set<int>s;
-        for(auto i : arr){
-            mp[i]++;
+        vector<int>vec(2001,0);
+        for(int i=0;i<arr.size();i++){
+            vec[1000+arr[i]]++;
         }
-        for(auto i :mp){
-            s.insert(i.second);
+        sort(vec.begin(),vec.end());
+        for(int i=1;i<2001;i++){
+            if(vec[i]!=0 && vec[i]==vec[i-1])
+                 return false;
         }
-        return s.size()==mp.size();
+        return true;
+
+
+
     }
 };
