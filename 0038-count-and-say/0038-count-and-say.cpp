@@ -1,12 +1,9 @@
 class Solution {
 public:
     string countAndSay(int n) {
-        vector<string>s(n+1);
         if(n==1)return "1";
-        s[0]="1";
-        for(int i=1;i<=n;i++){
+        string str=countAndSay(n-1);
         string ans="";
-        string str=s[i-1];
         char ch=str[0];
         int count=0;
         for(int i=0;i<str.size();i++){
@@ -19,9 +16,8 @@ public:
             }
         }
         ans+=to_string(count);
-            ans+=ch;
-        s[i]=ans;    
-        }
-        return s[n-1];
+            ans+=ch;  
+        
+        return ans;
     }
 };
