@@ -1,8 +1,9 @@
 class MyHashMap {
 public:
-unordered_map<int,int>mp;
+vector<int> mp;
+
     MyHashMap() {
-        
+        mp.resize(1e6+1,-1);
     }
     
     void put(int key, int value) {
@@ -10,17 +11,13 @@ unordered_map<int,int>mp;
     }
     
     int get(int key) {
-        if(mp.find(key)!=mp.end()){
             return mp[key];
-        }
-        return -1;
+      
     }
     
     void remove(int key) {
-        if(mp.find(key)!=mp.end()){
-            mp.erase(key);
-        }
-    }
+        mp[key]=-1;
+            }
 };
 
 /**
